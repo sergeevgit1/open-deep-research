@@ -5,33 +5,51 @@
 <div align="center">
     <h1>Open Deep Research</h1>
     <p>
-        AI-powered research reports. Ask a question, get a comprehensive, sourced answer.
+        Отчёты для исследований на базе ИИ. Задайте вопрос — получите развёрнутый, подтверждённый источниками ответ.
     </p>
 </div>
 
-## Tech Stack
+## Обзор проекта
 
-- **Next.js 15** with App Router for modern web development
-- **Together.ai** for advanced LLM research, planning, and summarization
-- **Clerk** for authentication
-- **Drizzle ORM** and **Neon** for database management
-- **Amazon S3** for secure image storage
-- **Upstash QStash/Redis** for workflow orchestration and state
-- **Exa** for scraping webpages
-- **Vercel** for seamless deployment and hosting
+Open Deep Research помогает быстро получать качественные аналитические отчёты. Приложение строит план исследования, собирает информацию из сети, валидирует найденные факты и оформляет результат в виде читаемого отчёта с обложкой и источниками. Решение удобно для продуктовых исследователей, аналитиков и основателей, которым нужен быстрый и достоверный дайджест по теме.
 
-## How it works
+### Основные возможности
 
-1. User asks a research question
-2. The app generates a research plan and search queries using Together.ai
-3. It performs iterative web searches, summarizes results, and evaluates if more research is needed
-4. The app generates a comprehensive report, including sources and a cover image
-5. The final report is stored and displayed to the user
+- Генерация плана исследования и поисковых запросов с учётом контекста вопроса.
+- Многошаговый сбор данных: итеративные веб-поиски, краткие конспекты найденных материалов и оценка полноты информации.
+- Автоматическое формирование отчёта с цитированием и изображением обложки.
+- Сохранение результатов в базе и отображение истории исследований пользователю.
 
-## Cloning & running
+## Технологический стек
 
-1. Fork or clone the repo
-2. Create accounts at [Together.ai](https://togetherai.link) and [AWS](https://aws.amazon.com/) for LLM and S3
-3. Set up Clerk for authentication ([Clerk.dev](https://clerk.dev/))
-4. Create a `.env` file (use `.example.env` for reference) and add your API keys
-5. Run `pnpm install` and `pnpm run dev` to install dependencies and start the app locally
+- **Next.js 15** (App Router) — современный фронтенд и серверные роуты
+- **Together.ai** — продвинутое планирование, суммаризация и генерация текста
+- **Clerk** — аутентификация и управление пользователями
+- **Drizzle ORM** + **Neon** — типобезопасная работа с базой данных
+- **Amazon S3** — хранение изображений обложек
+- **Upstash QStash/Redis** — оркестрация задач и хранение состояния
+- **Exa** — безопасный сбор данных с веб-страниц
+- **Vercel** — деплой и хостинг
+
+## Как работает приложение
+
+1. Пользователь формулирует исследовательский вопрос.
+2. Together.ai строит план, подбирает поисковые запросы и стратегию поиска.
+3. Сервис выполняет серию веб-запросов, суммирует результаты и проверяет, нужно ли продолжить поиск.
+4. Генерируется полноценный отчёт с указанием источников и обложкой.
+5. Итоговый отчёт сохраняется и доступен пользователю в личном кабинете.
+
+## Быстрый старт (локально)
+
+1. Форкните или клонируйте репозиторий.
+2. Создайте аккаунты в [Together.ai](https://togetherai.link) и [AWS](https://aws.amazon.com/) (для LLM и S3).
+3. Настройте аутентификацию через [Clerk.dev](https://clerk.dev/).
+4. Создайте файл `.env` (ориентируйтесь на `.example.env`) и добавьте ключи API.
+5. Установите зависимости `pnpm install` и запустите `pnpm run dev` для локальной разработки.
+
+## Дополнительные материалы
+
+- **Демо**: [opendeepresearch.dev](https://www.opendeepresearch.dev/) — попробуйте приложение в действии.
+- **Безопасность и приватность**: данные запросов используются только для генерации отчётов; личная информация пользователей защищена Clerk и не сохраняется в отчётах.
+- **Стек и архитектура**: приложение разделено на UI (Next.js), серверные действия (App Router), слой интеграций с Together.ai, Exa, Upstash и модуль хранения в Neon/S3.
+- **Контрибуции**: приветствуются улучшения интерфейса, оптимизация запросов к Together.ai и новые проверки качества данных. Открывайте issue перед крупным изменением, чтобы обсудить детали.
